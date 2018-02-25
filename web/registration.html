@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New user registration</title>
+    <style>
+        a{text-decoration: none;}
+    </style>
+</head>
+<body>
+<table style="border:1px solid black;width: 100%;">
+    <tr>
+        <td width="80%"><a href="index.html"><h1 style="text-align:center">_______Welcome to the Web-Shop_______</h1></a></td>
+        <td width="20%" align="right">
+            <a href="login.html">Log In</a>
+            <a href="registration.html">Registration</a>
+        </td>
+    </tr>
+</table>
+<form action="/RegFormServlet">
+    <table>
+        <tr>
+            <td>Nickname:</td>
+            <td><input type="text" name="NickName" placeholder="Nickname"></td>
+        </tr>
+        <tr>
+            <td>Firstname:</td>
+            <td><input type="text" name="FirstName" placeholder="Firstname"></td>
+        </tr>
+        <tr>
+            <td>Lastname:</td>
+            <td><input type="text" name="LastName" placeholder="Lastname"></td>
+        </tr>
+        <tr>
+            <td>E-Mail:</td>
+            <td><input type="email" name="Mail" placeholder="E-Mail"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="Password" placeholder="Password"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
