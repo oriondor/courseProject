@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Web-Shop | Купить товары онлайн</title>
+    <title>Добавить в базу</title>
     <style>
         a{text-decoration: none;}
     </style>
@@ -10,13 +10,46 @@
 <body>
 <table style="border:1px solid black;width: 100%;">
     <tr>
-        <td width="80%"><a href="index.html"><h1 style="text-align:center">_______Welcome to the Web-Shop_______</h1></a></td>
+        <td width="80%"><a href="index.jsp"><h1 style="text-align:center">_______Welcome to the Web-Shop_______</h1></a></td>
         <td width="20%" align="right">
             <a href="login.html">Log In</a>
             <a href="registration.html">Registration</a>
+            <a href="index.html">Add to DB</a>
         </td>
     </tr>
 </table>
-
+<br><br><br>
+<h3>Добавление элементов в БД:</h3>
+<form method="post" action="/AddToDB">
+<table>
+    <tr>
+        <td>Имя</td>
+        <td><input name="ItemName" type="text" placeholder="Item name" required></td>
+    </tr>
+    <tr>
+        <td>Описание</td>
+        <td><textarea name="ItemDescr" cols="40" rows="5"></textarea></td>
+    </tr>
+    <tr>
+        <td>Цена</td>
+        <td><input name="ItemPrice" type="number" step="0.5" placeholder="Price" required></td>
+    </tr>
+    <tr>
+        <td>Категория</td>
+        <td><select name="ItemCategory">
+            <option selected value="Laptop">Laptop</option>
+            <option value="Phone">Phone</option>
+            <option value="Printer">Printer</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Изображение</td>
+        <td><input name="ItemPhoto" type="file" value="Add image"></td>
+    </tr>
+    <tr>
+        <td align="right" colspan="2"><input name="addToDB" type="submit" value="Add to DB"> </td>
+    </tr>
+</table>
+</form>
 </body>
 </html>

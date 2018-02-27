@@ -18,6 +18,7 @@ import static java.lang.Class.*;
 @WebServlet(value = "/LoginFormServlet")
 public class LoginFormServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private final static String driverName = "com.mysql.jdbc.Driver";
     private final static String URL = "jdbc:mysql://localhost:3306/databasekursa4?autoReconnect=true&useSSL=false";
     private final static String USERNAME = "root";
     private final static String PASSWORD = "root";
@@ -30,7 +31,7 @@ public class LoginFormServlet extends HttpServlet {
         //ПОДКЛЮЧЕНИЕ К БД
         //Connection connect;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(driverName);
         } catch (ClassNotFoundException e) {
             System.err.println("Driver error!");
         }
@@ -63,8 +64,9 @@ public class LoginFormServlet extends HttpServlet {
         out.println("<!DOCTYPE html><html><head><title>WebShop Login</title></head><body>");
         if(UserFound && PassEq) {
             HttpSession session = request.getSession();
-            session.setAttribute("Nick", request.getParameter("NickName"));
+            session.setAttribute("Nick", request.getParameter("NickName"));//создание сессии, если пользователь подтвержден
             out.println("<h3>You was successfully logged in as "+session.getAttribute("Nick")+"!</h3>");
+            out.println("<br><a href='index.html'>Go to main page</a>");
         }else{
             out.println("<h3>No such user found!</h3>");
             out.println("<br><a href='registration.html'>Log On?</a>");

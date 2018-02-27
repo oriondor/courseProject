@@ -10,10 +10,11 @@
 <body>
 <table style="border:1px solid black;width: 100%;">
     <tr>
-        <td width="80%"><a href="index.html"><h1 style="text-align:center">_______Welcome to the Web-Shop_______</h1></a></td>
+        <td width="80%"><a href="index.jsp"><h1 style="text-align:center">_______Welcome to the Web-Shop_______</h1></a></td>
         <td width="20%" align="right">
             <a href="login.html">Log In</a>
             <a href="registration.html">Registration</a>
+            <a href="index.html">Add to DB</a>
         </td>
     </tr>
 </table>
@@ -21,11 +22,11 @@
     <table>
         <tr>
             <td>Nickname:</td>
-            <td><input type="text" name="NickName" placeholder="Nickname"></td>
+            <td><input type="text" name="NickName" placeholder="Nickname" required></td>
         </tr>
         <tr>
             <td>Password:</td>
-            <td><input type="password" name="Password" placeholder="Password"></td>
+            <td><input type="password" name="Password" placeholder="Password" required></td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="Submit"></td>

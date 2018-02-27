@@ -12,6 +12,7 @@ import java.sql.*;
 @WebServlet(value = "/RegFormServlet")
 public class RegFormServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private final static String driverName = "com.mysql.jdbc.Driver";
     private final static String URL = "jdbc:mysql://localhost:3306/databasekursa4";
     private final static String USERNAME = "root";
     private final static String PASSWORD = "root";
@@ -37,7 +38,7 @@ public class RegFormServlet extends HttpServlet {
         //ПОДКЛЮЧЕНИЕ К БД
         //Connection connect;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(driverName);
         } catch (ClassNotFoundException e) {
             System.err.println("Driver error!");
         }
