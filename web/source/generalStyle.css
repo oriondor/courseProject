@@ -1,0 +1,48 @@
+body{
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+input{
+    border: 1px solid #cccccc;
+border-radius: 3px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-khtml-border-radius: 3px;
+background: #ffffff !important;
+outline: none;
+height: 24px;
+width: 120px;
+color: #0c0c0c;
+font-size: 11px;
+}
+a{text-decoration: none;}
+table{
+
+}
+#header{
+    background: #1d1d1e;
+}
+#header td{
+    -webkit-border-radius: 9px 9px 9px 9px;
+    border-radius: 9px 9px 9px 9px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+#header h1{
+    float:left;
+}
+#header a{
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    color:white;
+}
+#header a:hover{
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    color: #dc6238;
+}
