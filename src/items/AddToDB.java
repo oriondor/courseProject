@@ -26,6 +26,7 @@ public class AddToDB extends HttpServlet {
         String D = request.getParameter("ItemDescr");
         int P = Integer.parseInt(request.getParameter("ItemPrice"));
         String C = request.getParameter("ItemCategory");
+        String mImg = request.getParameter("mImg");
         //ПОДКЛЮЧЕНИЕ К БД
         //Connection connect;
         try {

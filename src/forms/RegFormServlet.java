@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+
 @WebServlet(value = "/RegFormServlet")
 public class RegFormServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -34,7 +35,8 @@ public class RegFormServlet extends HttpServlet {
         String LN = request.getParameter("LastName");
         String M = request.getParameter("Mail");
         String P = request.getParameter("Password");
-
+        //String sha256hex = org.apache.commons.codec.digest.DigestUtils.sha256Hex(P);
+       // System.out.println(sha256hex);
         //ПОДКЛЮЧЕНИЕ К БД
         //Connection connect;
         try {

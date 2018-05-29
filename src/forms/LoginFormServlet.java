@@ -1,4 +1,4 @@
-package form;
+package forms;
 
 import com.mysql.fabric.jdbc.FabricMySQLDriver;
 
@@ -29,7 +29,6 @@ public class LoginFormServlet extends HttpServlet {
         Boolean UserFound = false;
         Boolean PassEq = false;
         //ПОДКЛЮЧЕНИЕ К БД
-        //Connection connect;
         try {
             Class.forName(driverName);
         } catch (ClassNotFoundException e) {
@@ -66,7 +65,7 @@ public class LoginFormServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("Nick", request.getParameter("NickName"));//создание сессии, если пользователь подтвержден
             out.println("<h3>You was successfully logged in as "+session.getAttribute("Nick")+"!</h3>");
-            out.println("<br><a href='index.html'>Go to main page</a>");
+            out.println("<br><a href='index.jsp'>Go to main page</a>");
         }else{
             out.println("<h3>No such user found!</h3>");
             out.println("<br><a href='registration.html'>Log On?</a>");
