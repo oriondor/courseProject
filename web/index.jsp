@@ -46,7 +46,7 @@
 </head>
 <body>
 
-
+<!--шапка-->
 <table style="width: 100%;">
     <tr id="header">
         <td width="80%"><a href="index.jsp"><h1 style="text-align:center">Web—Shop</h1></a></td>
@@ -63,8 +63,6 @@
             <a href="index.html">Add to DB</a>
             <%}
             %>
-
-
         </td>
     </tr>
 </table>
@@ -108,7 +106,7 @@
 <br><h3>Доступные товары:</h3>
 <div id="tovari">
    <% while(resultset.next()){%>
-   <a href="#"> <div class="tovar">
+   <a href="item.jsp?ItemId=<%=resultset.getString("item_id")%>"> <div class="tovar">
 <table class="tovarTable">
     <tr style="border-bottom: 1px solid black;">
         <td>
