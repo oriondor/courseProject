@@ -45,27 +45,6 @@
     <link rel="stylesheet" href="source/generalStyle.css">
 </head>
 <body>
-
-<!--шапка-->
-<table style="width: 100%;">
-    <tr id="header">
-        <td width="80%"><a href="index.jsp"><h1 style="text-align:center">Web—Shop</h1></a></td>
-        <td width="20%" align="right">
-            <%if(session.getAttribute("Nick")!=null){%>
-            <a href="#">
-            <%=session.getAttribute("Nick").toString()%>
-            </a>
-            <form action="/LogOutServlet"><input type="submit" value="Log Out"> </form>
-            <% }else{
-            %>
-            <a href="login.html">Log In</a>
-            <a href="registration.html">Registration</a>
-            <a href="index.html">Add to DB</a>
-            <%}
-            %>
-        </td>
-    </tr>
-</table>
 <%
     //ПОДКЛЮЧЕНИЕ К БД
     //Connection connect;
@@ -79,6 +58,36 @@
         if(!connect.isClosed()){
             System.out.println("Соединение с БД установлено!");
         }//установлено соединение%>
+<%String Nickname =null;
+    ResultSet userset = null;
+    if(session.getAttribute("Nick")!=null) {
+        Nickname = session.getAttribute("Nick").toString();
+        userset=statement.executeQuery("SELECT * FROM users where nickname='"+Nickname+"';");
+        userset.next();}%>
+<!--шапка-->
+<table style="width: 100%;">
+    <tr id="header">
+        <td width="80%"><a href="index.jsp"><h1 style="text-align:center">Web—Shop</h1></a></td>
+        <td width="20%" align="right">
+            <%if(Nickname!=null){%>
+            <a href="user.jsp">
+                <%=Nickname%>
+            </a>
+            <%if(userset.getString("accessLvl").equals("admin")){%>
+            <a href="index.html">Add to DB</a>
+            <%}%>
+            <form action="/LogOutServlet"><input type="submit" value="Log Out"> </form>
+            <% }else{
+            %>
+            <a href="login.html">Log In</a>
+            <a href="registration.html">Registration</a>
+
+            <%}
+            %>
+        </td>
+    </tr>
+</table>
+
 <table>
     <form method="get" action="index.jsp">
     <tr>
@@ -127,7 +136,7 @@
         </td>
     </tr>
     <tr>
-        <td><input type="button" value="В корзину"></td>
+        <td><input type="button" value="Подробнее"></td>
     </tr>
 </table>
     </div>

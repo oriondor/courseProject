@@ -45,7 +45,8 @@ public class RegFormServlet extends HttpServlet {
             System.err.println("Driver error!");
         }
         try(Connection connect = DriverManager.getConnection(URL,USERNAME,PASSWORD);
-            Statement statement = connect.createStatement()) {
+            Statement statement = connect.createStatement();
+            Statement statement2 = connect.createStatement()) {
             if(!connect.isClosed()){
                 System.out.println("Соединение с БД установлено!");
             }//установлено соединение
@@ -54,7 +55,13 @@ public class RegFormServlet extends HttpServlet {
                 if(NN.equals(resultset.getString("nickname"))){UserExist=true;}//ПРОВЕРКА НА ОДИНАКОВЫЕ НИКНЕЙМЫ
             }
             if(!UserExist)//Записать данные в базу, если пользователь ещё не был создан
-                statement.executeUpdate("INSERT into users set nickname='"+NN+"', name='"+FN+"', surname='"+LN+"', email='"+M+"', password = '"+P+"'");
+                statement.executeUpdate("INSERT into users set nickname='"+NN+"', name='"+FN+"', surname='"+LN+"', email='"+M+"', password = '"+P+"', accessLvl = 'user'");
+
+            ResultSet newuserset = statement.executeQuery("SELECT * FROM users WHERE nickname='"+NN+"';");
+            newuserset.next();
+            Integer newID = Integer.parseInt(newuserset.getString("user_id"));
+            System.out.println(newID);
+            statement2.executeUpdate("INSERT INTO orders SET user_id="+newID+", items_id='0';");
 
             connect.close();//закрытие подключения
         } catch (SQLException e) {

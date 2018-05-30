@@ -4,7 +4,9 @@
     <file url="file://$PROJECT_DIR$/src/forms/LoginFormServlet.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/forms/RegFormServlet.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/items/AddToDB.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/items/AddToOrders.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/resources/test.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/web/item.jsp" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/web/user.jsp" dialect="MySQL" />
   </component>
 </project>

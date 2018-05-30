@@ -17,6 +17,7 @@ public class AddToDB extends HttpServlet {
     private final static String URL = "jdbc:mysql://localhost:3306/databasekursa4";
     private final static String USERNAME = "root";
     private final static String PASSWORD = "root";
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -27,6 +28,9 @@ public class AddToDB extends HttpServlet {
         int P = Integer.parseInt(request.getParameter("ItemPrice"));
         String C = request.getParameter("ItemCategory");
         String mImg = request.getParameter("mImg");
+        String Img1 = request.getParameter("Img1");
+        String Img2 = request.getParameter("Img2");
+        String Img3 = request.getParameter("Img3");
         //ПОДКЛЮЧЕНИЕ К БД
         //Connection connect;
         try {
@@ -40,34 +44,12 @@ public class AddToDB extends HttpServlet {
                 System.out.println("Соединение с БД установлено!");
             }//установлено соединение
                 //ДОБАВИТЬ В БАЗУ
-            statement.executeUpdate("INSERT into items set name='"+N+"', description='"+D+"', price="+P+", category='"+C+"'");
+            statement.executeUpdate("INSERT into items set name='"+N+"', description='"+D+"', price="+P+", category='"+C+"',image='"+mImg+"',additImg='"+Img1+"',additImg2='"+Img2+"',additImg3='"+Img3+"';");
             PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html><html><head><title>WebShop Database</title></head><body>");
             out.println("<h3>Элементы были добавлены</h3>");
             out.println("</body></html>");
-            /*
-            //ПОКАЗАТЬ ВСЕ ЭЛЕМЕНТЫ БАЗЫ
-            ResultSet resultset = statement.executeQuery("SELECT * FROM items;");//получение всех элементов
-            PrintWriter out = response.getWriter();
-            out.println("<!DOCTYPE html><html><head><title>WebShop Database</title></head><body><table>");
-            while(resultset.next()){
-                out.println("<tr>");
-                    out.println("<td>");
-                        out.println(resultset.getString("name"));
-                    out.println("</td>");
-                    out.println("<td>");
-                        out.println(resultset.getString("price"));
-                        out.println(" Грн");
-                    out.println("</td>");
-                    out.println("<td>");
-                        out.println("Описание:<br>");
-                        out.println(resultset.getString("description"));
-                    out.println("</td>");
-                out.println("</tr>");
-            }
-            out.println("</table></body></html>");
-*/
-            connect.close();//закрытие подключения
+             connect.close();//закрытие подключения
         } catch (SQLException e) {
             System.err.println("Неудалось установить подключение!");
         }
